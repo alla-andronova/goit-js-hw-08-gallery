@@ -49,9 +49,9 @@ function onImgGalleryClick(e) {
 // Закрытие модального окна по клику на кнопку button[data - action= "close-lightbox"].
 const closeBtn = document.querySelector('button[data-action="close-lightbox"]');
 
-closeBtn.addEventListener('click', onCloseBtnClick);
+closeBtn.addEventListener('click', closeModal);
 
-function onCloseBtnClick(e) {
+function closeModal(e) {
   modalLightBoxEL.classList.remove('is-open');
   // Очистка значения атрибута src элемента img. lightbox__image.Это необходимо для того,
   // чтобы при следующем открытии модального окна,
@@ -63,13 +63,13 @@ function onCloseBtnClick(e) {
 
 // Закрытие модального окна по клику на div.lightbox__overlay.
 const containerOverlayEL = document.querySelector('.lightbox__overlay');
-containerOverlayEL.addEventListener('click', onCloseBtnClick);
+containerOverlayEL.addEventListener('click', closeModal);
 
 // Закрытие модального окна по нажатию клавиши ESC.
 window.addEventListener('keydown', onEscPress);
 function onEscPress(e) {
   if (e.code === 'Escape') {
-    onCloseBtnClick();
+    closeModal();
   }
 }
 // Пролистывание изображений галереи в открытом модальном окне клавишами "влево" и "вправо".
